@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\ContentCreatedEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\WebBaseController;
 use App\Http\Requests\Admin\Editor\StoreOrUpdateContentRequest;
@@ -52,6 +53,8 @@ class EditorController extends WebBaseController
         }
 
         $data = $storeEditorResponse->dto;
+
+        broadcast(new ContentCreatedEvent($data));
 
         return Inertia::render('Editor/ShowEditor', [
             "type" => "SUCCESS",
