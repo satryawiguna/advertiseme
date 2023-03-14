@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 
 class GenericListSearchResponse extends BasicResponse
 {
-    public Collection $dtoListSearch;
+    public Collection $dtoList;
 
     public int $totalCount;
 
@@ -15,8 +15,8 @@ class GenericListSearchResponse extends BasicResponse
         return $this->totalCount;
     }
 
-    public function getDtoListSearch(): Collection
+    public function getDtoList(): Collection
     {
-        return $this->dtoListSearch ?? new Collection();
+        return $this->dtoList ?? new Collection();
     }
 }

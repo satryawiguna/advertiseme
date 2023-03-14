@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Core\Contract\IService;
+use App\Services\BaseService;
+use App\Services\ContentService;
+use App\Services\Contracts\IContentService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(IService::class, BaseService::class);
+        $this->app->bind(IContentService::class, ContentService::class);
     }
 
     /**
@@ -19,6 +24,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
     }
 }

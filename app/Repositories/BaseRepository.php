@@ -10,24 +10,21 @@ use Illuminate\Support\Collection;
 
 class BaseRepository implements IRepository
 {
-    public BaseEntity $model;
+    protected BaseEntity $_model;
 
-    /**
-     * @param BaseEntity $model
-     */
     public function __construct(BaseEntity $model)
     {
-        $this->model = $model;
+        $this->_model = $model;
     }
 
     public function all(string $order = "id", string $sort = "asc"): Collection {
-        return $this->model
+        return $this->_model
             ->orderBy($order, $sort)
             ->get();
     }
 
     public function findById(int|string $id): BaseEntity|null {
-        return $this->model->find($id);
+        return $this->_model->find($id);
     }
 
     protected function setAuditableInformationFromRequest(BaseEntity|array $entity, FormRequest $request)

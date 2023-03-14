@@ -9,7 +9,7 @@ class AuditableRequest
     public function rules()
     {
         return [
-            'request_by' => ['string']
+            'request_by' => []
         ];
     }
 }

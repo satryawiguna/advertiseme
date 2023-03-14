@@ -9,6 +9,6 @@ export default defineConfig({
             ssr: 'resources/js/ssr.jsx',
             refresh: true,
         }),
-        react(),
+        react()
     ],
 });
