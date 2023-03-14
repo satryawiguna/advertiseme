@@ -24,12 +24,14 @@ class EditorController extends WebBaseController
 
     public function show(Request $request): Response
     {
-        $content = $this->_contentService->getContent();
+        $contentResponse = $this->_contentService->getContent();
 
-        if ($content->dto) {
+        $data = $contentResponse->dto;
+
+        if ($data) {
             return Inertia::render('Editor/ShowEditor', [
-                "id" => $content->dto->id,
-                "content" => $content->dto->content
+                "type" => "SUCCESS",
+                "content" => $data
             ]);
         }
 
@@ -49,11 +51,11 @@ class EditorController extends WebBaseController
             ]);
         }
 
+        $data = $storeEditorResponse->dto;
+
         return Inertia::render('Editor/ShowEditor', [
-            "id" => $storeEditorResponse->dto->id,
-            "content" => $request->input('content'),
             "type" => "SUCCESS",
-            "data" => $storeEditorResponse->dto
+            "content" => $data
         ]);
     }
 }
