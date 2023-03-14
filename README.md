@@ -21,6 +21,14 @@ DB_PORT=3306
 DB_DATABASE=advertiseme
 DB_USERNAME=sail
 DB_PASSWORD=password
+
+PUSHER_APP_ID=advertimeme
+PUSHER_APP_KEY=cmtCeHY2JjBtTWg4
+PUSHER_APP_SECRET=M0B6VjIzdjQ1SiohZWcwTDkqZW4=
+PUSHER_HOST=localhost
+PUSHER_PORT=6001
+PUSHER_SCHEME=http
+PUSHER_APP_CLUSTER=mt1
 ```
 
 ### Compiles and hot-reloads for development
@@ -41,12 +49,20 @@ Run some artisan commands
 $ ./vendor/bin/sail php artisan key:generate
 $ ./vendor/bin/sail php artisan migrate
 ```
+Run server
+```
+$ ./vendor/bin/sail php artisan serve
+$ ./vendor/bin/sail npm run dev
+$ ./vendor/bin/sail php artisan websocket:server
+```
 Hit the url through browser then do register frist to have access into dashboard
 ```
 http://localhost/
 ```
 
+
 Find the video screen within
 ```
 screencast-localhost-2023.03.14-15_27_37.webm
+screencast-localhost-2023.03.14-23_05_07.webm
 ```

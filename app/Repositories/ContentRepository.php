@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Core\Entity\BaseEntity;
 use App\Http\Requests\Admin\Editor\StoreOrUpdateContentRequest;
 use App\Models\Content;
+use App\Notifications\NewContentNotification;
 use App\Repositories\Contracts\IContentRepository;
 
 class ContentRepository extends BaseRepository implements IContentRepository
