@@ -5,7 +5,7 @@ import {Editor} from '@tinymce/tinymce-react';
 import {useRef} from "react";
 import TextInput from "@/Components/TextInput";
 
-export default function Show({ auth, id, content }) {
+export default function Show({ auth, content }) {
     const editorRef = useRef(null);
 
     const { data, setData, post, patch, processing, errors } = useForm({
@@ -13,10 +13,12 @@ export default function Show({ auth, id, content }) {
         content: ''
     });
 
-    if (id) {
-        data.id = id;
-        data.content = content;
+    if (content) {
+        data.id = content.id;
+        data.content = content.content;
     }
+
+    console.log(content);
 
     const handleOnChange = (e) => {
         data.content = e;
