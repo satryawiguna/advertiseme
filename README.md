@@ -45,3 +45,8 @@ Hit the url through browser then do register frist to have access into dashboard
 ```
 http://localhost/
 ```
+
+Find the video screen within
+```
+screencast-localhost-2023.03.14-15_27_37.webm
+```
