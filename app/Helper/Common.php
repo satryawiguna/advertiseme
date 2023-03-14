@@ -13,8 +13,8 @@ class Common
         return array_merge($rules, $auditableRequest->rules());
     }
 
-    public static function setRequestAuthor(FormRequest $request, AuditableRequest $auditableRequest): void
+    public static function setRequestAuthor(FormRequest $request): void
     {
-        $request->merge(['request_by' => (Auth::user()) ? Auth::user()->username : $auditableRequest->request_by]);
+        $request->merge(['request_by' => (Auth::user()) ? Auth::user()->id : 'system']);
     }
 }

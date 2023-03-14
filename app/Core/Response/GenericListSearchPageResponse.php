@@ -2,11 +2,12 @@
 
 namespace App\Core\Response;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 
 class GenericListSearchPageResponse extends BasicResponse
 {
-    public Collection $dtoListSearchPage;
+    public Paginator $dtoListSearchPage;
 
     public int $totalCount;
 
@@ -22,8 +23,8 @@ class GenericListSearchPageResponse extends BasicResponse
         return $this->meta;
     }
 
-    public function getDtoListSearchPage(): Collection
+    public function getDtoListSearchPage(): Paginator
     {
-        return $this->dtoListSearchPage ?? new Collection();
+        return $this->dtoListSearchPage ?? new Paginator(new Collection(), 10);
     }
 }
