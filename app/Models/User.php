@@ -6,6 +6,7 @@ use App\Core\Entity\BaseAuthEntity;
 //use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends BaseAuthEntity
@@ -41,4 +42,13 @@ class User extends BaseAuthEntity
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($content) {
+            $content->id = Str::uuid(36);
+        });
+    }
 }
