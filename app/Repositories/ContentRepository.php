@@ -22,6 +22,11 @@ class ContentRepository extends BaseRepository implements IContentRepository
         return $this->_content::all()->first();
     }
 
+    public function findById(string|int $id): BaseEntity|null
+    {
+        return $this->_content::find($id);
+    }
+
     public function createOrUpdateContent(StoreOrUpdateContentRequest $request): BaseEntity | null
     {
         $id = $request->id;

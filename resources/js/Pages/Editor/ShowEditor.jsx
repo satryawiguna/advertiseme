@@ -1,11 +1,9 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import {Head, useForm} from '@inertiajs/react';
-import {put, post} from "axios";
 import PrimaryButton from "@/Components/PrimaryButton";
 import {Editor} from '@tinymce/tinymce-react';
 import {useRef} from "react";
 import TextInput from "@/Components/TextInput";
-import InputError from "@/Components/InputError";
 
 export default function Show({ auth, id, content }) {
     const editorRef = useRef(null);

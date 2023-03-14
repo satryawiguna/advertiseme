@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\EditorController;
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,14 +18,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -38,5 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/editor', [EditorController::class, 'show'])->name('editor.show');
     Route::post('/editor', [EditorController::class, 'storeOrUpdate'])->name('editor.storeOrUpdate');
 });
+
+Route::get('/content/{id}', [ContentController::class, 'show'])->name('content.show');
 
 require __DIR__.'/auth.php';

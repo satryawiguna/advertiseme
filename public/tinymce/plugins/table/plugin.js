@@ -2500,7 +2500,7 @@
           items: [{
               type: 'checkbox',
               name: 'caption',
-              label: 'Show caption'
+              label: 'ShowContent caption'
             }]
         }
       ] : [];

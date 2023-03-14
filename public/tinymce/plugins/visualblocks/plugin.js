@@ -71,12 +71,12 @@
       const onAction = () => editor.execCommand('mceVisualBlocks');
       editor.ui.registry.addToggleButton('visualblocks', {
         icon: 'visualblocks',
-        tooltip: 'Show blocks',
+        tooltip: 'ShowContent blocks',
         onAction,
         onSetup: toggleActiveState(editor, enabledState)
       });
       editor.ui.registry.addToggleMenuItem('visualblocks', {
-        text: 'Show blocks',
+        text: 'ShowContent blocks',
         icon: 'visualblocks',
         onAction,
         onSetup: toggleActiveState(editor, enabledState)
