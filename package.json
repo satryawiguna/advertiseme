@@ -23,6 +23,9 @@
     "dependencies": {
         "@tinymce/tinymce-react": "^4.3.0",
         "fs-extra": "^11.1.0",
+        "html-react-parser": "^3.0.12",
+        "laravel-echo": "^1.15.0",
+        "pusher-js": "^8.0.1",
         "tinymce": "^6.3.2"
     }
 }
