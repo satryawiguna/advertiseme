@@ -1036,7 +1036,7 @@
         items: [{
             type: 'checkbox',
             name: 'caption',
-            label: 'Show caption'
+            label: 'ShowContent caption'
           }]
       };
       const getDialogContainerType = useColumns => useColumns ? {

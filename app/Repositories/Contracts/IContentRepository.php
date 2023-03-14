@@ -9,5 +9,7 @@ interface IContentRepository
 {
     public function findSingleFirstContent(): BaseEntity | null;
 
+    public function findById(string $id):  BaseEntity | null;
+
     public function createOrUpdateContent(StoreOrUpdateContentRequest $request): BaseEntity | null;
 }

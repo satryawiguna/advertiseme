@@ -27,13 +27,13 @@ class EditorController extends WebBaseController
         $content = $this->_contentService->getContent();
 
         if ($content->dto) {
-            return Inertia::render('Editor/Show', [
+            return Inertia::render('Editor/ShowEditor', [
                 "id" => $content->dto->id,
                 "content" => $content->dto->content
             ]);
         }
 
-        return Inertia::render('Editor/Show');
+        return Inertia::render('Editor/ShowEditor');
     }
 
     public function storeOrUpdate(StoreOrUpdateContentRequest $request): Response
@@ -41,7 +41,7 @@ class EditorController extends WebBaseController
         $storeEditorResponse = $this->_contentService->storeOrUpdateContent($request);
 
         if ($storeEditorResponse->isError()) {
-            return Inertia::render('Editor/Show', [
+            return Inertia::render('Editor/ShowEditor', [
                 "id" => $content->id ?? 0,
                 "content" => $request->input('content'),
                 "type" => "ERROR",
@@ -49,7 +49,7 @@ class EditorController extends WebBaseController
             ]);
         }
 
-        return Inertia::render('Editor/Show', [
+        return Inertia::render('Editor/ShowEditor', [
             "id" => $storeEditorResponse->dto->id,
             "content" => $request->input('content'),
             "type" => "SUCCESS",

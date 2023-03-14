@@ -41,6 +41,26 @@ class ContentService extends BaseService implements IContentService
         return $response;
     }
 
+    public function getContentById(string $id): GenericObjectResponse
+    {
+        $response = new GenericObjectResponse();
+
+        try {
+            $content = $this->_contentRepository->findById($id);
+
+            $response->dto = $content;
+        } catch (Exception $ex) {
+            $response = $this->setMessageResponse($response,
+                'ERROR',
+                HttpResponseType::INTERNAL_SERVER_ERROR->value,
+                $ex->getMessage());
+
+            Log::error("Invalid get content", $response->getMessageResponseError());
+        }
+
+        return $response;
+    }
+
     public function storeOrUpdateContent(StoreOrUpdateContentRequest $request): GenericObjectResponse
     {
         $response = new GenericObjectResponse();
